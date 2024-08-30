@@ -2,6 +2,13 @@
     display: none;
 }
 
+.bankicon {
+    border-radius: 100px;
+    position: relative;
+    bottom: -7px;
+    right: 10px;
+}
+
 .center-both {
     display: grid;
     place-items: center;
@@ -324,54 +331,12 @@ input:checked + .slider:before {
         top: 15px;
         z-index: 1001;
     }
+    
+    .container {
+        width: 100%;
+    }
 
-    .services-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
-        flex-wrap: wrap;
-    
-    }
-    
-    .light-theme .container {
-        width: 200%; 
-        text-align: center;
-        background-image: url(back.png);
-        border-radius: 50px;
-        box-shadow: 0 4px 8px #C59DEC;
-        transition: box-shadow 0.3s ease;
-    }
-    
-    
-    .dark-theme .container {
-        width: 200%; 
-        text-align: center;
-        background-image: url(back_1.png);
-        border-radius: 50px;
-        box-shadow: 0 4px 8px #C59DEC;
-        transition: box-shadow 0.3s ease;
-    }
-    
-    .light-theme .container_center {
-        width: 100%; 
-        text-align: center;
-        background-image: url(back.png);
-        border-radius: 50px;
-        box-shadow: 0 4px 8px #C59DEC;
-        transition: box-shadow 0.3s ease;
-    }
-    
-    .dark-theme .container_center {
-        width: 100%; 
-        text-align: center;
-        background-image: url(back_1.png);
-        border-radius: 50px;
-        box-shadow: 0 4px 8px #C59DEC;
-        transition: box-shadow 0.3s ease;
-    }
-    
-    .container:hover, .container_center:hover {
+    .container:hover {
         box-shadow: 0 4px 8px #9d3cff;
     }
 
