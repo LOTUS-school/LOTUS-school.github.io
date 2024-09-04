@@ -83,14 +83,14 @@ nav a {
 }
  
 .light-theme {
-    background-image: url(back.png);
+    background-image: url(/assets/back.png);
     background-repeat: no-repeat;
     background-size: cover;
     color: #333;
 }
 
 .dark-theme {
-    background-image: url(back_1.png);
+    background-image: url(/assets/back_1.png);
     background-repeat: no-repeat;
     background-size: cover;
     color: #ffffff;
@@ -285,18 +285,18 @@ input:checked + .slider:before {
 }
 
 .light-theme .container {
-    background-image: url(back.png);
+    background-image: url(/assets/back.png);
 }
 
 .dark-theme .container {
-    background-image: url(back_1.png);
+    background-image: url(/assets/back_1.png);
 }
 
 .light-theme .container_center {
     width: 30%; 
     text-align: center;
     justify-content: space-between;
-    background-image: url(back.png);
+    background-image: url(/assets/back.png);
     border-radius: 50px;
     box-shadow: 0 4px 8px #C59DEC;
     transition: box-shadow 0.3s ease;
@@ -307,7 +307,7 @@ input:checked + .slider:before {
 .dark-theme .container_center {
     width: 30%; 
     text-align: center;
-    background-image: url(back_1.png);
+    background-image: url(/assets/back_1.png);
     border-radius: 50px;
     box-shadow: 0 4px 8px #C59DEC;
     transition: box-shadow 0.3s ease;
@@ -318,7 +318,7 @@ input:checked + .slider:before {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
     .nav-toggle {
         display: block;
         background: none;
