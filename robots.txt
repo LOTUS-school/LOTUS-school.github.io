@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://elt-lotus.ru/sitemap.xml
