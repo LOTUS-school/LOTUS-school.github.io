@@ -162,14 +162,14 @@ nav a {
 }
  
 .light-theme {
-    background-image: url(/assets/back.png);
+    background-image: url(/assets/back.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: #333;
 }
 
 .dark-theme {
-    background-image: url(/assets/back_1.png);
+    background-image: url(/assets/back_1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: #ffffff;
@@ -367,18 +367,18 @@ input:checked + .slider:before {
 }
 
 .light-theme .container {
-    background-image: url(/assets/back.png);
+    background-image: url(/assets/back.jpg);
 }
 
 .dark-theme .container {
-    background-image: url(/assets/back_1.png);
+    background-image: url(/assets/back_1.jpg);
 }
 
 .light-theme .container_center {
     width: 30%; 
     text-align: center;
     justify-content: space-between;
-    background-image: url(/assets/back.png);
+    background-image: url(/assets/back.jpg);
     border-radius: 50px;
     box-shadow: 0 4px 8px #C59DEC;
     transition: box-shadow 0.3s ease;
@@ -389,7 +389,7 @@ input:checked + .slider:before {
 .dark-theme .container_center {
     width: 30%; 
     text-align: center;
-    background-image: url(/assets/back_1.png);
+    background-image: url(/assets/back_1.jpg);
     border-radius: 50px;
     box-shadow: 0 4px 8px #C59DEC;
     transition: box-shadow 0.3s ease;
