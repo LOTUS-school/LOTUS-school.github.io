@@ -13,7 +13,6 @@
     background-color: rgba(0, 0, 0, 0.5); 
 }
 
-
 .vkpost {
     display: flex;
     justify-content: center;
@@ -450,41 +449,45 @@ input:checked + .slider:before {
     .nav-toggle-icon {
         width: 25px;
         height: 2px;
-        background-color: #333;
+        background: linear-gradient(to right, #7F00FF, #E100FF);
         display: block;
         position: relative;
-        transition: background-color 0.3s;
+        border-radius: 2px;
+        transition: background-color 0.3s, transform 0.3s;
     }
-
+    
+    .nav-toggle.open .nav-toggle-icon {
+        background: transparent;
+    }
+    
     .nav-toggle-icon::before,
     .nav-toggle-icon::after {
         content: '';
         width: 25px;
         height: 2px;
-        background-color: #333;
-        display: block;
+        background: linear-gradient(to right, #7F00FF, #E100FF);
         position: absolute;
+        left: 0;
+        border-radius: 2px;
         transition: transform 0.3s;
     }
-
+    
     .nav-toggle-icon::before {
-        transform: translateY(-8px);
+        top: -8px;
     }
-
+    
     .nav-toggle-icon::after {
-        transform: translateY(8px);
+        top: 8px;
     }
-
-    .nav-toggle.open .nav-toggle-icon {
-        background-color: transparent;
-    }
-
+    
     .nav-toggle.open .nav-toggle-icon::before {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(0, 0);
+        top: 0;
     }
-
+    
     .nav-toggle.open .nav-toggle-icon::after {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-45deg) translate(0, 0);
+        top: 0;
     }
 
     .nav-menu {
@@ -537,11 +540,5 @@ input:checked + .slider:before {
         padding: 60px 20px 50px;
     }
     
-
-    .dark-theme .nav-toggle-icon,
-    .dark-theme .nav-toggle-icon::before,
-    .dark-theme .nav-toggle-icon::after {
-        background-color: #ffffff;
-    }
 }
 
