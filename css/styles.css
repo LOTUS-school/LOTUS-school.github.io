@@ -449,7 +449,7 @@ input:checked + .slider:before {
     .nav-toggle-icon {
         width: 25px;
         height: 2px;
-        background: linear-gradient(to right, #7F00FF, #E100FF);
+        background: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
         display: block;
         position: relative;
         border-radius: 2px;
@@ -465,7 +465,7 @@ input:checked + .slider:before {
         content: '';
         width: 25px;
         height: 2px;
-        background: linear-gradient(to right, #7F00FF, #E100FF);
+        background: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
         position: absolute;
         left: 0;
         border-radius: 2px;
