@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTUS</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .vkpost {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center-container {
+            width: 40%; 
+            height: 100000%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .vkpostiframe {
+            height: 50%;
+            width: 100%;
+            max-width: 800px;
+            height: 800px;
+            border: none;
+            overflow: auto;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: transform 0.3s ease-in-out;
+        }
+        header.hidden {
+            transform: translateY(-100%);
+        }
+        header img {
+            width: 50px;
+        }
+        header h1 {
+            font-size: 24px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            height: 90vh;
+            padding: 40px;
+        }
+        .hero img {
+            width: 35%;
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .hero .info {
+            flex: 1;
+            text-align: left;
+        }
+        .hero h2 {
+            color: #fff;
+            font-size: 54px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        section {
+            margin: 0;
+            padding: 40px;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        section h2 {
+            color: #fff;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .course-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 20px;
+            width: 260px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        .course-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .course-card button {
+            background: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый */
+            backdrop-filter: blur(20px); /* Размытие */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Полупрозрачная граница */
+            color: white;
+            padding: 10px 40px;
+            border-radius: 25px; /* Закругленные края */
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .course-card button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(1.03);
+        }
+        .course-card button:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .ruleslink {
+            color: #fff;
+        }
+        .course-card button:hover {
+            transform: scale(1.1);
+        }
+        .contact {
+            margin-top: 20px;
+        }
+        .contact a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.279);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .contact a img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .contact a:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <img src="favicon.ico" alt="Logo">
+        <h1>Natalya Kuznetsova</h1>
+    </header>
+    <div class="hero" data-aos="fade-up">
+        <img src="teacher.jpg" alt="Teacher Photo">
+        <div class="info">
+            <h2>About Me</h2>
+            <p>I'm a teacher of English. The language is my life, work and hobby.
+                Visit my VK profile and <a style="color: #fff;" href="https://vk.me/ganumuna">write</a> to join my classes if you feel like it 🤗</p>
+            <p>If you ready to start you need to read my <a style="color: #fff;" href="rules.html">rules</a></p>
+        </div>
+    </div>
+
+    <section class="courses" data-aos="fade-right">
+        <h2>My services</h2>
+        <div class="courses">
+            <div class="course-card">
+                <img src="favicon.ico" alt="Basic English">
+                <h3>One-to-one class</h3>
+                <p>duration: 60/90 min</p>
+                <p>price: 1000/1500 ₽</p>
+                <button>Register</button>
+            </div>
+            <div class="course-card">
+                <img src="favicon.ico" alt="Intermediate English">
+                <h3>Group class</h3>
+                <p>duration: 60/90 min</p>
+                <p>price: 850/1200 ₽</p>
+                <button>Register</button>
+            </div>
+            <div class="course-card">
+                <img src="favicon.ico" alt="Advanced English">
+                <h3>IELTS preparation</h3>
+                <p>duration: 90 min</p>
+                <p>price: 2300 ₽</p>
+                <button>Register</button>
+            </div>
+            <div class="course-card">
+                <img src="favicon.ico" alt="Business English">
+                <h3>Consultation about online teaching</h3>
+                <p>duration: 60 min</p>
+                <p>price: 2000 ₽</p>
+                <button>Register</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="section">
+        <h2>Upcoming events</h2>
+        <div class="center-container">
+            <div class="vkpost">
+                <div id="vk_post_-183802545_960"></div>
+                <script type="text/javascript" src="https://vk.com/js/api/openapi.js?173"></script>
+                <script type="text/javascript">
+                  (function() {
+                    VK.Widgets.Post("vk_post_-183802545_960", -183802545, 960, 'EW-SY91BsYWa404gPIm-D3oRoN8k');
+                  }());
+                </script>
+        </div>
+    </section>
+
+    <section class="contact" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Follow me:</p>
+        <a href="https://vk.com/ganumuna" target="_blank"><img src="vk-icon.png" alt="vk">VK</a>
+        <a href="https://t.me/LOTUS_NY" target="_blank"><img src="telegram-icon.png" alt="Telegram">Telegram</a>
+    </section>
+
+    <footer>
+        <p>© 2024 LOTUS inc. All rights reserved.</p>
+        <p>The language is my life, work and hobby.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Header hide on scroll
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Snap scrolling between sections
+        document.body.style.scrollSnapType = 'y mandatory';
+        document.querySelectorAll('section, .hero').forEach(section => {
+            section.style.scrollSnapAlign = 'start';
+        });
+    </script>
+</body>
+</html>
