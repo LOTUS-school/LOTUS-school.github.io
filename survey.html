@@ -126,7 +126,7 @@
             background-color: #f9f9f9;
         }
 
-        #modal {
+        #modal, #modalerror {
             display: none;
             position: fixed;
             z-index: 1000;
@@ -137,7 +137,7 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
-        #modalContent {
+        #modalContent, #modalContenterror {
             background-color: white;
             margin: 15% auto;
             padding: 20px;
@@ -146,11 +146,11 @@
             text-align: center;
         }
 
-        #modal h2 {
+        #modal, #modalerror h2 {
             color: #cc9af1;
         }
 
-        #modal button {
+        #modal button, #modalerror button {
             background-color: #cc9af1;
             color: white;
             border: none;
@@ -161,7 +161,7 @@
             margin-top: 20px;
         }
 
-        #modal button:hover {
+        #modal button:hover, #modalerror button:hover {
             background-color: #cc9af1;
         }
     </style>
@@ -178,12 +178,12 @@
 
             <div class="question">
                 <label for="nowabotme">Как вы узнали обо мне?</label>
-                <input type="text" name="nowabotme" placeholder="Ваш ответ" required>
+                <input type="text" name="nowaboutus" placeholder="Ваш ответ" required>
             </div>
 
             <div class="question">
                 <label for="about">Расскажите немного о себе (сколько Вам лет, откуда Вы, Ваши увлечения, чем Вы занимаетесь).</label>
-                <input type="text" name="about" placeholder="Ваш ответ" required>
+                <input type="text" name="aboutme" placeholder="Ваш ответ" required>
             </div>
 
             <div class="question checkbox-group">
@@ -221,7 +221,7 @@
 
             <div class="question">
                 <label for="aboutopit">Расскажите о Вашем опыте изучения английского языка (где и сколько изучали/не изучали, какие Ваши сильные и слабые стороны в изучении иностранного языка). Постарайтесь, пожалуйста, более развернуто ответить на этот вопрос. </label>
-                <input type="text" name="aboutopit" placeholder="Ваш ответ" required>
+                <input type="text" name="experiencev" placeholder="Ваш ответ">
             </div>
 
             <div class="question radio-group">
@@ -235,19 +235,19 @@
                     Elementary - можете высказываться простыми фразами и в целом понимать собеседников
                 </label>
                 <label>
-                    <input type="radio" name="languagelevel" value="Pre-Intermediate" required>
+                    <input type="radio" name="languagelevel" value="Pre-Intermediate">
                     Pre-Intermediate - понимаете простой и стандартный язык, если речь идет о знакомых темах и может говорить об интересующих Вас предметах и давать краткие пояснения.
                 </label>
                 <label>
-                    <input type="radio" name="languagelevel" value="Intermediate" >
+                    <input type="radio" name="languagelevel" value="Intermediate">
                     Intermediate - Вы неплохо владеете языком, можете понимать собеседника и участвовать в беседах на общие или профессиональные темы, обосновывая свое мнение.
                 </label>
                 <label>
-                    <input type="radio" name="languagelevel" value="Advanced" required>
+                    <input type="radio" name="languagelevel" value="Advanced">
                     Advanced - хороший уровень языка, Вы много понимаете при прослушивании, довольно бегло и грамотно изъясняетесь на разные темы.
                 </label>
                 <label>
-                    <input type="radio" name="languagelevel" value="Proficiency" >
+                    <input type="radio" name="languagelevel" value="Proficiency">
                     Proficiency - Вы владеете языков на уровне носителя.
                 </label>
             </div>
@@ -293,7 +293,7 @@
 
             <div class="question">
                 <label for="pozelania">Есть ли у Вас пожелания или вопросы по поводу организации занятий (если есть, напишите о них ниже)</label>
-                <textarea name="pozelania" placeholder="Ваш ответ" required></textarea>
+                <textarea name="pozelania" placeholder="Ваш ответ"></textarea>
             </div>
 
             <div class="question">
@@ -308,6 +308,13 @@
         <div id="modalContent">
             <h2>Сообщение успешно отправлено!</h2>
             <button id="closeModal">Закрыть</button>
+        </div>
+    </div>
+
+    <div id="modalerror">
+        <div id="modalContenterror">
+            <h2>Ошибка сообщение не отправлено!</h2>
+            <button id="closeModalerror">Закрыть</button>
         </div>
     </div>
 
@@ -348,10 +355,10 @@
                 })
                 .then(response => response.text())
                 .then(result => {
-                    if (result.trim() === "OK") {
+                    if (result.trim() === "Success") {
                         showModal();
                     } else {
-                        alert("Ошибка отправки!");
+                        showModalError();
                     }
                 })
                 .catch(error => {
@@ -361,9 +368,15 @@
             function showModal() {
                 document.getElementById('modal').style.display = 'block';
             }
+            function showModalError(){
+                document.getElementById('modalerror').style.display = 'block';
+            }
 
             document.getElementById('closeModal').addEventListener("click", function () {
                 document.getElementById('modal').style.display = 'none';
+            });
+            document.getElementById('closeModalerror').addEventListener("click", function () {
+                document.getElementById('modalerror').style.display = 'none';
             });
         });
     </script>
