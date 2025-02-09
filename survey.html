@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрос</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #cc9af1;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #444;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="email"], textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #cc9af1;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 8px;
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a88fe3;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .radio-group label, .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .radio-group input, .checkbox-group input {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .radio-group input[type="radio"], 
+        .checkbox-group input[type="checkbox"] {
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        .radio-group input[type="radio"]:checked,
+        .checkbox-group input[type="checkbox"]:checked {
+            border-color: #cc9af1;
+            background-color: #cc9af1;
+        }
+        
+        .radio-group input[type="radio"]:checked + label,
+        .checkbox-group input[type="checkbox"]:checked + label {
+            color: #cc9af1;
+        }
+
+        #targetOtherInput, #otherInput {
+            margin-top: 10px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #modalContent {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+
+        #modal h2 {
+            color: #cc9af1;
+        }
+
+        #modal button {
+            background-color: #cc9af1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        #modal button:hover {
+            background-color: #cc9af1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Опрос</h1>
+        <form id="surveyForm">
+            <div class="question">
+                <label for="name">Как вас зовут?</label>
+                <input type="text" name="name" placeholder="Ваш ответ" required>
+            </div>
+
+            <div class="question">
+                <label for="nowabotme">Как вы узнали обо мне?</label>
+                <input type="text" name="nowabotme" placeholder="Ваш ответ" required>
+            </div>
+
+            <div class="question">
+                <label for="about">Расскажите немного о себе (сколько Вам лет, откуда Вы, Ваши увлечения, чем Вы занимаетесь).</label>
+                <input type="text" name="about" placeholder="Ваш ответ" required>
+            </div>
+
+            <div class="question checkbox-group">
+                <label>С какой целью Вы хотите изучать английский язык?</label>
+                <label>
+                    <input type="checkbox" name="target[]" value="Для работы">
+                    Для работы
+                </label>
+                <label>
+                    <input type="checkbox" name="target[]" value="Для учебы">
+                    Для учебы
+                </label>
+                <label>
+                    <input type="checkbox" name="target[]" value="Сдать международный экзамен">
+                    Сдать международный экзамен
+                </label>
+                <label>
+                    <input type="checkbox" name="target[]" value="Переезд за границу">
+                    Переезд за границу
+                </label>
+                <label>
+                    <input type="checkbox" name="target[]" value="Для себя">
+                    Для себя
+                </label>
+                <label>
+                    <input type="checkbox" name="target[]" value="Для путешествий">
+                    Для путешествий
+                </label>
+                <label>
+                    <input type="checkbox" id="targetOtherCheckbox">
+                    Другое
+                </label>
+                <input type="text" name="target[]" id="targetOtherInput" placeholder="Укажите другие интересы" style="display: none;">
+            </div>            
+
+            <div class="question">
+                <label for="aboutopit">Расскажите о Вашем опыте изучения английского языка (где и сколько изучали/не изучали, какие Ваши сильные и слабые стороны в изучении иностранного языка). Постарайтесь, пожалуйста, более развернуто ответить на этот вопрос. </label>
+                <input type="text" name="aboutopit" placeholder="Ваш ответ" required>
+            </div>
+
+            <div class="question radio-group">
+                <label>Какой у Вас уровень языка (если не знаете точно, то предположите)</label>
+                <label>
+                    <input type="radio" name="languagelevel" value="Beginner" required>
+                    Beginner - ранее язык не изучали
+                </label>
+                <label>
+                    <input type="radio" name="languagelevel" value="Elementary">
+                    Elementary - можете высказываться простыми фразами и в целом понимать собеседников
+                </label>
+                <label>
+                    <input type="radio" name="languagelevel" value="Pre-Intermediate" required>
+                    Pre-Intermediate - понимаете простой и стандартный язык, если речь идет о знакомых темах и может говорить об интересующих Вас предметах и давать краткие пояснения.
+                </label>
+                <label>
+                    <input type="radio" name="languagelevel" value="Intermediate" >
+                    Intermediate - Вы неплохо владеете языком, можете понимать собеседника и участвовать в беседах на общие или профессиональные темы, обосновывая свое мнение.
+                </label>
+                <label>
+                    <input type="radio" name="languagelevel" value="Advanced" required>
+                    Advanced - хороший уровень языка, Вы много понимаете при прослушивании, довольно бегло и грамотно изъясняетесь на разные темы.
+                </label>
+                <label>
+                    <input type="radio" name="languagelevel" value="Proficiency" >
+                    Proficiency - Вы владеете языков на уровне носителя.
+                </label>
+            </div>
+
+            <div class="question checkbox-group">
+                <label>Что представляет для Вас наибольшую трудность в изучении иностранного языка?</label>
+                <label>
+                    <input type="checkbox" name="hard[]" value="Запоминание слов">
+                    Запоминание слов
+                </label>
+                <label>
+                    <input type="checkbox" name="hard[]" value="Не могу никак освоить грамматику">
+                    Не могу никак освоить грамматику
+                </label>
+                <label>
+                    <input type="checkbox" name="hard[]" value="Не могу говорить, хотя слова и грамматику знаю более или менее" >
+                    Не могу говорить, хотя слова и грамматику знаю более или менее
+                </label>
+                <label>
+                    <input type="checkbox" name="hard[]" value="Плохо понимаю на слух">
+                    Плохо понимаю на слух
+                </label>
+                <label>
+                    <input type="checkbox" name="hard[]" value="Плохое произношение">
+                    Плохое произношение
+                </label>
+                <label>
+                    <input type="checkbox" id="otherCheckbox">
+                    Другое
+                </label>
+                <input type="text" name="hard[]" id="otherInput" placeholder="Укажите другие трудности" style="display: none;">
+            </div>            
+
+            <div class="question">
+                <label for="time">В какое время и день Вам было бы удобно заниматься?</label>
+                <input type="text" name="time" placeholder="Ваш ответ" required>
+            </div>
+
+            <div class="question">
+                <label for="socialink">Как с вами связатся? (Ссылка на соц.сеть)</label>
+                <input type="text" name="socialink" placeholder="Ваш ответ" required>
+            </div>
+
+            <div class="question">
+                <label for="pozelania">Есть ли у Вас пожелания или вопросы по поводу организации занятий (если есть, напишите о них ниже)</label>
+                <textarea name="pozelania" placeholder="Ваш ответ" required></textarea>
+            </div>
+
+            <div class="question">
+                <label>Благодарю Вас за уделенное время и с нетерпением жду встречи с Вами.</label>
+            </div>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+
+    <div id="modal">
+        <div id="modalContent">
+            <h2>Сообщение успешно отправлено!</h2>
+            <button id="closeModal">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('targetOtherCheckbox').addEventListener("change", function () {
+                let otherInput = document.getElementById('targetOtherInput');
+                if (this.checked) {
+                    otherInput.style.display = "block";
+                    otherInput.setAttribute("required", "true");
+                } else {
+                    otherInput.style.display = "none";
+                    otherInput.removeAttribute("required");
+                    otherInput.value = "";
+                }
+            });
+
+            document.getElementById('otherCheckbox').addEventListener("change", function () {
+                let otherInput = document.getElementById('otherInput');
+                if (this.checked) {
+                    otherInput.style.display = "block";
+                    otherInput.setAttribute("required", "true");
+                } else {
+                    otherInput.style.display = "none";
+                    otherInput.removeAttribute("required");
+                    otherInput.value = "";
+                }
+            });
+
+            document.getElementById("surveyForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                let formData = new FormData(this);
+
+                fetch("http://api.kuzymuzy.ru/send.php", { 
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(result => {
+                    if (result.trim() === "OK") {
+                        showModal();
+                    } else {
+                        alert("Ошибка отправки!");
+                    }
+                })
+                .catch(error => {
+                    alert("Ошибка: " + error);
+                });
+            });
+            function showModal() {
+                document.getElementById('modal').style.display = 'block';
+            }
+
+            document.getElementById('closeModal').addEventListener("click", function () {
+                document.getElementById('modal').style.display = 'none';
+            });
+        });
+    </script>
+
+</body>
+</html>
