@@ -6,18 +6,18 @@
     <title>Опрос</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue';
+            background-color: #fff;
             color: #333;
             margin: 0;
             padding: 0;
-        }
+        } 
 
         .container {
             max-width: 700px;
             margin: 50px auto;
             padding: 30px;
-            border: 1px solid #ddd;
+            border: 1px solid #cc9af1;
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -53,6 +53,8 @@
 
         textarea {
             height: 150px;
+            min-height: 150px;
+            max-height: 150px;
             resize: vertical;
         }
 
@@ -146,7 +148,7 @@
             text-align: center;
         }
 
-        #modal, #modalerror h2 {
+        #modal h2, #modalerror h2 {
             color: #cc9af1;
         }
 
@@ -162,7 +164,7 @@
         }
 
         #modal button:hover, #modalerror button:hover {
-            background-color: #cc9af1;
+            background-color: #c480ef;
         }
     </style>
 </head>
@@ -296,9 +298,17 @@
                 <textarea name="pozelania" placeholder="Ваш ответ"></textarea>
             </div>
 
+            <div class="question checkbox-group">
+                <label>
+                    <input type="checkbox" name="rules" value="Я прочитал правила и согласен с ними" required>
+                    Я прочитал&nbsp;<a href="rules.html">правила</a>&nbsp;проведения занятий и полностью согласен с ними.
+                </label>
+            </div>                      
+            
             <div class="question">
                 <label>Благодарю Вас за уделенное время и с нетерпением жду встречи с Вами.</label>
             </div>
+
 
             <button type="submit">Отправить</button>
         </form>
