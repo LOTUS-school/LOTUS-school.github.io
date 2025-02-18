@@ -166,6 +166,12 @@
         #modal button:hover, #modalerror button:hover {
             background-color: #c480ef;
         }
+
+        .no-wrap {
+            display: inline-flex;
+            white-space: nowrap;
+            word-break: keep-all;
+        }
     </style>
 </head>
 <body>
@@ -299,12 +305,15 @@
             </div>
 
             <div class="question checkbox-group">
+                <label>Что представляет для Вас наибольшую трудность в изучении иностранного языка?</label>
                 <label>
                     <input type="checkbox" name="rules" value="Я прочитал правила и согласен с ними" required>
-                    Я прочитал&nbsp;<a href="rules.html">правила</a>&nbsp;проведения занятий и полностью согласен с ними.
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <span>Я прочитал <a target="_blank" href="rules.html" style="text-decoration: underline; color: #cc9af1;">правила</a> проведения занятий и полностью согласен с ними</span>
+                    </div>
                 </label>
-            </div>                      
-            
+            </div>
+                             
             <div class="question">
                 <label>Благодарю Вас за уделенное время и с нетерпением жду встречи с Вами.</label>
             </div>
