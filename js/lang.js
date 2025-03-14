@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const urlLang = urlParams.get('lang');
     
-    let currentLang = localStorage.getItem('lang') || 'en';
+    let currentLang = localStorage.getItem('lang') || 'ru';
   
     if (urlLang && supportedLangs.includes(urlLang)) {
         currentLang = urlLang;
