@@ -9,7 +9,7 @@
 ╚══════╝░╚════╝░░░░╚═╝░░░░╚═════╝░╚═════╝░  ╚═════╝░╚═╝░░░╚═╝░░░╚══════╝
 
 
-                         Create by KuzyMuzy
+                       Create by KuzyMuzy inc.
 
 ***************************************************************************/
 
@@ -142,3 +142,9 @@ window.onclick = function(event) {
         document.body.classList.remove("modal-open");
     }
 }
+
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+navToggle.addEventListener('click', function () {
+  document.body.classList.toggle('lock-scroll');
+});
